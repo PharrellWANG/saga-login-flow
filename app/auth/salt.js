@@ -17,6 +17,13 @@ export default function (seed) {
   }
 
   // Convert byte array to base64 string
+  //
+  // pha.zx >> creates a base-64 encoded ASCII string from
+  // a String object in which each character in the string
+  // is treated as a byte of binary data.
+  //
+  // ref:
+  // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/btoa
   const salt = btoa(String.fromCharCode.apply(String, bytes.slice(0, 16)))
 
   // Adding header for bcrypt. Fake 10 rounds.
